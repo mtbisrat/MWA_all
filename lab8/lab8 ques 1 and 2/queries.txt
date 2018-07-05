@@ -1,0 +1,33 @@
+1.db.lab8queris.find().pretty()
+2.db.lab8queris.find({},{restaurant_id:1,district:1,cuisine:1}).pretty()
+3. db.lab8queris.find({},{restaurant_id:1,district:1,cuisine:1,_id:0}).pretty()
+4.db.lab8queris.find({},{restaurant_id:1,district:1,name:1,district:1,"address.zipcode":1,_id:0}).pretty()
+5.db.lab8queris.find({"district":{$eq:"Bronx"}}).pretty()
+6.db.lab8queris.find({"district":{$eq:"Bronx"}}).limit(5).pretty()
+7.db.lab8queris.find({"district":{$eq:"Bronx"}}).skip(5).limit(5).pretty()
+8.db.lab8queris.find({"address.coord.1":{$lt:-95.754168}}).pretty()
+9.db.lab8queris.find({$and: [{"address.coord.1":{$lt: 65.754168}}, {"grades.score":{$gt:70}},{"cuisine":{$ne:"American"}}]}).pretty()
+10.db.lab8queris.find({"name":/^Wil/},{restaurant_id:1, name:1, district:1, cuisine:1}).pretty()
+11.db.lab8queris.find({"name":/ces$/},{restaurant_id:1, name:1, district:1, cuisine:1}).pretty()
+12.db.lab8queris.find({"name":/Reg/},{restaurant_id:1, name:1, district:1, cuisine:1}).pretty()
+13. db.lab8queris.find({"district":'Bronx',cuisine:{$in:["American","Chinese"]}}).pretty()
+14.db.lab8queris.find({district:{$in:["StatenIsland","Queens","Bronx","Brooklyn"]}},{restaurant_id:1,name:1,district:1,cuisine:1}).pretty()
+15.db.lab8queris.find({district:{$nin:["StatenIsland","Queens","Bronx","Brooklyn"]}},{restaurant_id:1,name:1,district:1,cuisine:1}).pretty()
+16.db.lab8queris.find({"grades":{$elemMatch:{score:{$lt:10}}}}, {restaurant_id:1, name:1, district:1, cuisine:1}).pretty()
+17.db.lab8queris.find({"address.coord.1":{$gt:42, $lte:52}},{restaurant_id:1, name:1, address:1}).pretty()
+18.db.lab8queris.find().sort({name:1}).pretty()
+19.db.lab8queris.find().sort({name:-1}).pretty()
+20.db.lab8queris.find().sort({cuisine:1, district:-1}).pretty()
+21.db.lab8queris.find({"address.street":{$exists:true}}).pretty()
+22.db.lab8queris.find({"address.coord":{$elemMatch: {$type:"double"}}}).pretty()
+23.db.lab8queris.find({name:/^Mad/},{name:1, cuisine:1, district:1, "address.coord":1}).pretty()
+
+
+
+
+2.for Question two we can use indexing 
+
+Here we can create 'Compound' index on ISBN, isReturned, and student.email. When the Library system needs to find all student who have to return books, will be contacted directly via email. 
+
+e.g db.Library.createIndex({ISBN:1},{unique:true, sparse:true})
+
