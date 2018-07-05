@@ -10,5 +10,6 @@
 	student:{
 		"name":"studentfullname",
                  "id":"idnumber"
+		 "e-mail":abc@mum.edu
                  }
      }
