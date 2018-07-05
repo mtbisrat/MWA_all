@@ -1,0 +1,11 @@
+1.db.zip.aggregate([{$match: {state:"IA"}}]).pretty()
+2.db.zip.aggregate([{$match: {pop:{$lt:1000}}}]).pretty()
+3.db.zip.aggregate([ {$group:{ _id: {"city": "$city", "state" : "$state"}, zip:{$sum:1}}} ,
+ {$match:{zip:{$gt:1}}}, 
+{$sort:{"_id.state":1,"_id.city":1}}, 
+{$project:{"_id.city":1}}
+])
+4.  db.zip.aggregate([{$group: {_id:{state:"$state", city:"$city"}, population:{$sum:"$pop"}}},
+ {$sort:{"_id.state":1, "population":1}}, {$group:{_id:"$_id.state", leastpopcity:{$first:"$_id.city"}, 
+  leastcitypop:{$first:"$population"}}}, 
+  {$sort:{"_id":1}}])
