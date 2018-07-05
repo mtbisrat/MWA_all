@@ -6,7 +6,7 @@
 	keyword: {"w1"},
 	borrowedDate:new Date("yyyy/mm/dd"),
 	dueDate:new Date("yyyy/mm/dd"),
-        isborrowed:{true,false}
+        isReturned:{true,false}
 	student:{
 		"name":"studentfullname",
                  "id":"idnumber"
