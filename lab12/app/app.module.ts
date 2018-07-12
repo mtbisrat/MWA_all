@@ -3,15 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { MyCompComponent } from './my-comp.component';
-import { UpperDirective } from './upper.directive';
 import { MyvisibilityDirective } from './myvisibility.directive';
 import { MycolorDirective } from './mycolor.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MyCompComponent,
-    UpperDirective,
+    MyCompComponent,    
     MyvisibilityDirective,
     MycolorDirective
   ],
