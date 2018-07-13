@@ -7,7 +7,7 @@ import { MyvisibilityDirective } from './myvisibility.directive';
 import { MycolorDirective } from './mycolor.directive';
 
 @NgModule({
-  declarations: [
+  declarations: [    
     AppComponent,
     MyCompComponent,    
     MyvisibilityDirective,
